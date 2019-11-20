@@ -1,0 +1,19 @@
+READ ME
+
+a)  Best cases: 
+
+	Bubble: O(n)
+	Insertion: O(n)
+	Selection: O(n^2)
+
+	Worst cases: 
+
+	Bubble: O(n^2)
+	Insertion: O(n^2)
+	Selection: O(n^2)
+
+b)	The number of elements in the array definitiely slow down the sort, as adding more numbers to compare makes the process longer. The size of the elements doesn't matter as much as the length of the array. Yes, the timed data can be graphed. 
+
+c) Attached document
+d) 
+e) Better sorting algorithms 
