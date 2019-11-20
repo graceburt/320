@@ -1,0 +1,24 @@
+READ ME
+
+a)
+	So this lab wasn't as hard as I thought it was going to be. In fact, it was easier since we had most of the psuedo code which solved the figuring out prolem.
+
+	 1) Having the TreeNode inside the BinaryTree class was hard since it was private. Taking it out solved the scope issue there.
+
+b) 
+	insert, minimum, maximum, etc. = O(logn) which is height of the tree
+
+
+c)
+	Timing:
+
+	Timing for 1000 inserts in milliseconds: 65.4
+
+	Timing for 2000 inserts in milliseconds: 180.5
+
+	Timing for 3000 inserts in milliseconds: 373.383
+
+	Timing for 10000 inserts in milliseconds: 4023.83
+
+d)
+	Probably using a new system of sorting the tree (RB Trees), but also a better function for transplant. That function still doesn't make sense to me. 
