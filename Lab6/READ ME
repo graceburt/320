@@ -1,0 +1,50 @@
+READ ME 
+
+Lab 6
+
+a) 
+
+b) 
+   BEST CASE HA: O(1) //we hire everyone
+   WORST CASE HA: O(logn) //we hire everyone
+   BEST CASE QS: O(nlogn)
+   WORST CASE QS: O(n^2)
+
+c) i.) Yes, as it gets larger, it will eventually become logn, as we still have to interview everyone and pick the best candidate.
+
+d) Worst case for hiring algorithm: We hired candidate: 10001 with 6 swaps
+15109 miliseconds, and since it is random the chance of absolute worse case is low.
+
+e) :)
+
+f) It definitley could be more randomized, I invision it like a deck being shuffled. You can cut it in half, then cut that in half, and swap those halves, etc. 
+
+
+HIRE ASSISTANT OUTPUT 
+
+		size: 20 swaps: 2
+			 swaps: 3
+			 swaps: 2
+	size: 1000	swaps: 4
+				swaps: 5
+				swaps: 6
+	size: 30000	swaps: 9
+				swaps: 15
+				swaps: 10
+				swaps: 16
+				swaps: 9
+	size: 1000000	swaps: 13
+					swaps: 6
+					swaps: 9
+
+QUICKSORT OUTPUT
+
+=======================
+Now we random quickSort 
+=======================
+Now we quickSort 
+
+Quick sort took: 
+21.0167
+Randomized Quick sort took: 
+1.36667
