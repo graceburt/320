@@ -1,0 +1,39 @@
+READ ME Lab 4
+
+
+a)
+
+b)	The best and worst case is O(nlogn)
+
+c) Scales by number of nodes in heap 
+
+d) Ordering in restaurants, who ordered first; Tickets for the theater, who gets priority seating; When I bribe you to grade my lab well so my priority gets moved to the top since I bribed you
+
+e)
+Number of nodes in heap: 
+5
+Fill name: 
+w
+Fill name: 
+ww
+Fill name: 
+www
+Fill name: 
+wwww
+Fill name: 
+wwwww
+
+Heapifying...
+
+hello
+wwww (3) 
+www (2) wwwww (4) 
+ww (1) w (0) 
+
+Max value is wwww
+
+The max is: 3
+hello
+wwww (3) 
+www (2) wwwww (4) 
+ww (1) w (0) 
