@@ -1,0 +1,86 @@
+READ ME 
+
+Grace Burton
+Dr. Anderson
+COSC 320
+October 24, 2019
+
+
+Lab 7
+
+a) TRIAL AND ERROR. Had a very hard time with the hash and hex functions. When I tried to hash then hex strings, it would only work when the rest of the main is commented out. 
+
+EXAMPLE)
+
+
+grace@Grace-Ubuntu:~/Documents/COSC320/Labs/Lab7$ ./main
+hash of str
+18446744073709551195
+hex of hash of str
+fffffffffffffe5b
+
+grace@Grace-Ubuntu:~/Documents/COSC320/Labs/Lab7$ make clean
+rm main *.o
+grace@Grace-Ubuntu:~/Documents/COSC320/Labs/Lab7$ make
+g++ -c 645.cpp -std=c++11
+645.cpp: In function ‘size_t hash(size_t)’:
+645.cpp:27:15: warning: result of ‘(2 << 31)’ requires 34 bits to represent, but ‘int’ only has 32 bits [-Wshift-overflow=]
+  size_t W = (2<<31);
+              ~^~~~
+g++ 645.o -std=c++11 -o main
+grace@Grace-Ubuntu:~/Documents/COSC320/Labs/Lab7$ ./main
+
+size_t -> hash
+
+18446744073709551592
+18446744073709551591
+18446744073709551590
+18446744073709551589
+18446744073709551588
+
+
+size_t -> hex
+
+Array at position 0
+18
+Array at position 1
+19
+Array at position 2
+1a
+Array at position 3
+1b
+Array at position 4
+1c
+
+hash of str
+fffffffffffffe5b
+hex of hash of str
+fffffffffffffe5b
+
+I figured out that my original intHex function, while it just prints out the hex value, also changes the original array. Using my new hex() function, it works just fine.
+
+b) So my strHash function takes in a string. It then converts every element of the string into an int, and hashes that int.
+
+c) It's very inefficent to go through every element and hash them seperately, perhaps combining all the numbers into one long string and hashing it that way would be more efficent?
+
+
+OUTPUT
+
+size_t -> hash
+
+18446744073709551592
+18446744073709551591
+18446744073709551590
+18446744073709551589
+18446744073709551588
+
+
+size_t -> hex
+
+Test of hex 7b 
+
+hash of str
+18446744073709551195
+hex of hash of str
+fffffffffffffe5b
+
