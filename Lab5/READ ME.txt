@@ -1,0 +1,423 @@
+Read Me Lab 5
+
+(a)  Summarize your approach to the problem, and how your code addresses the abstractions neededfor matrix arithmetic.
+
+Psuedo Code
+
+(b)  Analyze your benchmark observations:  what does the timing suggest for the time complexity ofaddition, subtraction, and multiplication for twon×nmatrices?
+
+:)
+
+(c)  What is the arithmetic time complexity of your implementation of each operation, when done on two n×nmatrices?  Give tight asymptotic bounds.
+
+	Addition & Subtraction: O(n^2)
+
+	Multiplication: O(n^3)
+
+(d)  How could the code be improved in terms of usability, efficiency, and robustness?
+
+Parrallelization (words are hard)
+
+===========================OUTPUT===============================
+
+grace@Grace-Ubuntu:~/Documents/COSC320/Labs/Lab5$ make
+g++ -std=c++11 -c main.cpp
+g++ main.o -o main
+grace@Grace-Ubuntu:~/Documents/COSC320/Labs/Lab5$ ./main
+2
+2
+2
+2
+What would you like the element at position 0 to be? 
+2
+What would you like the element at position 0 to be? 
+3
+What would you like the element at position 0 to be? 
+4
+What would you like the element at position 0 to be? 
+5
+printing out matrix 
+ 2 2  3 2 
+ 4 2  5 2 
+
+2
+2
+2
+2
+What would you like the element at position 0 to be? 
+1
+What would you like the element at position 0 to be? 
+1
+What would you like the element at position 0 to be? 
+1
+What would you like the element at position 0 to be? 
+1
+printing out matrix 
+ 1 2  1 2 
+ 1 2  1 2 
+
+2
+2
+2
+2
+printing out matrix 
+ 6 2  8 2 
+ 6 2  8 2 
+
+
+printing out matrix 
+ 4 2  6 2 
+ 8 2  10 3 
+
+Finished deconstructing
+Finished deconstructing
+Finished deconstructing
+Finished deconstructing
+
+
+grace@Grace-Ubuntu:~/Documents/COSC320/Labs/Lab5$ make
+g++ -std=c++11 -c main.cpp
+g++ main.o -o main
+grace@Grace-Ubuntu:~/Documents/COSC320/Labs/Lab5$ ./main
+1
+2
+1
+2
+What would you like the element at position 0 to be? 
+1
+What would you like the element at position 0 to be? 
+2
+printing out matrix 
+ 1 2  2 2 
+
+1
+2
+1
+2
+What would you like the element at position 0 to be? 
+1
+What would you like the element at position 0 to be? 
+2
+printing out matrix 
+ 1 2  2 2 
+
+Matrices do not match. 
+grace@Grace-Ubuntu:~/Documents/COSC320/Labs/Lab5$ make
+g++ -std=c++11 -c main.cpp
+g++ main.o -o main
+grace@Grace-Ubuntu:~/Documents/COSC320/Labs/Lab5$ ./main
+2
+2
+2
+2
+What would you like the element at position 0 to be? 
+2
+What would you like the element at position 0 to be? 
+2
+What would you like the element at position 0 to be? 
+2
+What would you like the element at position 0 to be? 
+2
+printing out matrix 
+ 2 2  2 2 
+ 2 2  2 2 
+
+2
+2
+2
+2
+What would you like the element at position 0 to be? 
+3
+What would you like the element at position 0 to be? 
+3
+What would you like the element at position 0 to be? 
+3
+What would you like the element at position 0 to be? 
+3
+printing out matrix 
+ 3 2  3 2 
+ 3 2  3 2 
+
+2
+2
+printing out matrix 
+ 12 3  12 3 
+ 12 3  12 3 
+
+Finished deconstructing
+Finished deconstructing
+Finished deconstructing
+grace@Grace-Ubuntu:~/Documents/COSC320/Labs/Lab5$ 
+
+
+grace@Grace-Ubuntu:~/Documents/COSC320/Labs/Lab5$ make
+g++ -std=c++11 -c main.cpp
+g++ main.o -o main
+grace@Grace-Ubuntu:~/Documents/COSC320/Labs/Lab5$ ./main
+10
+10
+10
+10
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+printing out matrix 
+ 3 2  6 2  7 2  5 2  3 2  5 2  6 2  2 2  9 2  1 2 
+ 2 2  7 2  0 2  9 2  3 2  6 2  0 2  6 2  2 2  6 2 
+ 1 2  8 2  7 2  9 2  2 2  0 2  2 2  3 2  7 2  5 2 
+ 9 2  2 2  2 2  8 2  9 2  7 2  3 2  6 2  1 2  2 2 
+ 9 2  3 2  1 2  9 2  4 2  7 2  8 2  4 2  5 2  0 2 
+ 3 2  6 2  1 2  0 2  6 2  3 2  2 2  0 2  6 2  1 2 
+ 5 2  5 2  4 2  7 2  6 2  5 2  6 2  9 2  3 2  7 2 
+ 4 2  5 2  2 2  5 2  4 2  7 2  4 2  4 2  3 2  0 2 
+ 7 2  8 2  6 2  8 2  8 2  4 2  3 2  1 2  4 2  9 2 
+ 2 2  0 2  6 2  8 2  9 2  2 2  6 2  6 2  4 2  9 2 
+
+10
+10
+10
+10
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+What would you like the element at position 0 to be? 
+printing out matrix 
+ 5 2  0 2  4 2  8 2  7 2  1 2  7 2  2 2  7 2  2 2 
+ 2 2  6 2  1 2  0 2  6 2  1 2  5 2  9 2  4 2  9 2 
+ 0 2  9 2  1 2  7 2  7 2  1 2  1 2  5 2  9 2  7 2 
+ 7 2  6 2  7 2  3 2  6 2  5 2  6 2  3 2  9 2  4 2 
+ 8 2  1 2  2 2  9 2  3 2  9 2  0 2  8 2  8 2  5 2 
+ 0 2  9 2  6 2  3 2  8 2  5 2  6 2  1 2  1 2  5 2 
+ 9 2  8 2  4 2  8 2  1 2  0 2  3 2  0 2  4 2  4 2 
+ 4 2  4 2  7 2  6 2  3 2  1 2  7 2  5 2  9 2  6 2 
+ 2 2  1 2  7 2  8 2  5 2  7 2  4 2  1 2  8 2  5 2 
+ 9 2  7 2  5 2  3 2  8 2  8 2  3 2  1 2  8 2  9 2 
+
+10
+10
+clocked at: 0.65
+10
+10
+printing out matrix 
+ 253 4  206 4  173 4  319 4  253 4  214 4  203 4  188 4  185 4  172 4 
+ 183 4  188 4  144 4  311 4  235 4  213 4  196 4  206 4  167 4  196 4 
+ 250 4  214 4  139 4  369 4  287 4  245 4  176 4  207 4  155 4  225 4 
+ 249 4  311 4  223 4  391 4  290 4  244 4  222 4  212 4  266 4  248 4 
+ 261 4  256 4  194 4  310 4  319 4  255 4  207 4  164 4  242 4  168 4 
+ 189 4  214 4  123 4  326 4  221 4  197 4  168 4  211 4  178 4  191 4 
+ 179 4  208 4  168 4  311 4  221 4  195 4  148 4  185 4  179 4  186 4 
+ 241 4  267 4  221 4  388 4  298 4  228 4  207 4  229 4  216 4  260 4 
+ 243 4  237 4  187 4  328 4  294 4  197 4  186 4  177 4  211 4  211 4 
+ 262 4  305 4  236 4  411 4  332 4  260 4  253 4  218 4  301 4  264 4 
+
+
+printing out matrix 
+ 6 2  12 3  14 3  10 3  6 2  10 3  12 3  4 2  18 3  2 2 
+ 4 2  14 3  0 2  18 3  6 2  12 3  0 2  12 3  4 2  12 3 
+ 2 2  16 3  14 3  18 3  4 2  0 2  4 2  6 2  14 3  10 3 
+ 18 3  4 2  4 2  16 3  18 3  14 3  6 2  12 3  2 2  4 2 
+ 18 3  6 2  2 2  18 3  8 2  14 3  16 3  8 2  10 3  0 2 
+ 6 2  12 3  2 2  0 2  12 3  6 2  4 2  0 2  12 3  2 2 
+ 10 3  10 3  8 2  14 3  12 3  10 3  12 3  18 3  6 2  14 3 
+ 8 2  10 3  4 2  10 3  8 2  14 3  8 2  8 2  6 2  0 2 
+ 14 3  16 3  12 3  16 3  16 3  8 2  6 2  2 2  8 2  18 3 
+ 4 2  0 2  12 3  16 3  18 3  4 2  12 3  12 3  8 2  18 3 
+
+Finished deconstructing
+Finished deconstructing
+Finished deconstructing
+Finished deconstructing
+grace@Grace-Ubuntu:~/Doc
