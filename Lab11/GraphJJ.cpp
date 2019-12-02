@@ -41,28 +41,48 @@ void Graph::BreadthFirstSearch(int source){
 	}
 }
 void Graph::DepthFirstSearch(int source){
-	if(vertices.find(source) != vertices.end()){
-		std::stack<int> S;
-		Vertex[source] -> color = WHITE;
-		Vertex[source] -> parent = NULL;
-		Vertex[source] -> discovertime = Vertex[source] -> finishtime = 0;
-	
-	globaltime = 0;
 
-	while(!S.empty()){
+		map<int, vector<int>>::iterator sIt = adj.begin();
 
-		int V = S.top();
-		S.pop();
-		//adjacency list \/
-		for(auto E = vertices[V].begin(); E != vertices[V].end(); E++){
-			if((*E)->color == WHITE){
-				DFS_Visit(V);
-				}//end inside if
-			}//end for
-		}//end while
-	}//end outside if
-	else{
-		std::cout << "Error: Start value is not in list\n";
+		std::cout << "#" << numElements << std::endl;
+		color = vector<color_t>(numElements + 1, WHITE);
+		distance = vector<int>(numElements + 1, -1);
+		parent = vector<int>(numElements + 1, -1);
+		stack<int> Neighbors = stack<int>();
+		//adjacency list storage ^^
+		globaltime = 0;
+		numCycles = 0;
+
+		int curr = source;
+
+		// Vertex[source] -> color = WHITE;
+		// Vertex[source] -> parent = NULL;
+		// Vertex[source] -> discovertime = Vertex[source] -> finishtime = 0;
+
+	while(sIt != adj.end()){
+
+		if(color[sIt->first] != BLACK){//if finished vertex
+
+			current = sIt->first;
+			int u = current;
+
+			if(color[parent[u]] == WHITE) //new subgraph{
+
+
+				cout << "new sub-graph " << sIt->first;
+				vector<vector<int>>::iterator subGraphsIter = subGraphs.begin();
+				subGraphs.insert(subGraphsIter, topoSort);
+				topoSort.clear();
+				
+			}
+			
+			//adjacency list \/
+			for(auto E = vertices[V].begin(); E != vertices[V].end(); E++){
+				if((*E)->color == WHITE){
+					DFS_Visit(V);
+					}//end inside if
+				}//end for
+			}//end while
 	}
 }
 
@@ -79,7 +99,7 @@ void Graph::DFS_Visit(int source){
 			DFS_Visit(E);
 		}
 		//TODO: PARTD: Check if this works
-		//Technically DAG detection
+		//DAG detection
 		if((E*)->color == GRAY){
 			numCycles++;
 			std::cout << "The graph has cycles in it!\n";
