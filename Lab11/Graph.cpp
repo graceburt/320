@@ -1,12 +1,9 @@
 #include "Graph.h"
-Graph::Graph(){
-	//TODO: PARTA:
-	//@ creation, determine if Graph is directed or undirected
-	//empty constructor
-}
 
 Graph::Graph(bool D){
-	 :isDirectd = D;
+	//TODO: PARTA:
+	//@ creation, determine if Graph is directed or undirected
+	setDirection(D);
 }
 
 Graph::~Graph(){
@@ -56,7 +53,7 @@ void Graph::DepthFirstSearch(int source){
 		//adjacency list \/
 		for(auto E = vertices[V].begin(); E != vertices[V].end(); E++){
 			if((*E)->color == WHITE){
-				DFS_Visit(V);
+				DFS_Visit(V, S);
 				}//end inside if
 			}//end for
 		}//end while
@@ -66,21 +63,22 @@ void Graph::DepthFirstSearch(int source){
 	}
 }
 
-void Graph::DFS_Visit(int source){
+void Graph::DFS_Visit(int source, std::stack<int> S){
 	globaltime = globaltime++;
 	Vertex[source]->discovertime = globaltime;
 	Vertex[source]->color = GRAY;
 
+	int V = S.top();
 	//source is s...
 	//This loop detects cycles 
 	for(auto E = vertices[V].begin(); E != vertices[V].end(); E++){
 		if((*E)->color == WHITE){
-			(*E)->parent = vertices[V]; //s
-			DFS_Visit(E);
+			(*E)->parent = E; //s
+			DFS_Visit(*E, S);
 		}
 		//TODO: PARTD: Check if this works
 		//Technically DAG detection
-		if((E*)->color == GRAY){
+		if((*E)->color == GRAY){
 			numCycles++;
 			std::cout << "The graph has cycles in it!\n";
 			return;
@@ -93,6 +91,7 @@ void Graph::DFS_Visit(int source){
 }
 
 void Graph::AddVertex(int InsertVertex){
+	numElements++;
 	if(vertices.find(InsertVertex) == vertices.end()){ // Check to determine if value of InsertVertex is in list
 		Node * insertion = new Node;
 		insertion -> value = InsertVertex;
@@ -116,6 +115,9 @@ void Graph::AddEdge(int InsertEdge1, int InsertEdge2){
 	}
 	//push_back puts element at end of vector
 	//increases vector size by 1
+	if(isDirectd){
+
+	}
 	vertices[InsertEdge1].push_back(Vertex[InsertEdge2]);
 	vertices[InsertEdge2].push_back(Vertex[InsertEdge1]);
 }
@@ -146,7 +148,7 @@ vector<int> Graph::topSort()
 	map<int, vector<int>>::iterator it = vertices.begin();
 	if(isDAG() || numCycles < 0)//if cycles isn't computed it will still try dfs
 	{
-		output = Dfs(it->first);
+		output = DepthFirstSearch(it->first);
 	}else //it's not directed or has a cycle
 	{
 		cout << "The graph is not a DAG." << endl;
@@ -161,8 +163,9 @@ vector<int> Graph::topSort()
 // {
 // 	if(!isDAG() || numCycles < 0) //numcycles is -1 if it hasn't been computed
 // 	{
-// 		if(isDirected())
-// 			Dfs(0);
+// 		if(isDirected()){
+// 			DepthFirstSearch(0);
+	//}
 // 	}
 // 	vector<int> output = Dfs(1, transpose);
 
@@ -172,7 +175,7 @@ vector<int> Graph::topSort()
 // vector<int> Graph::getTranspose()
 // {
 // 	vector<int> t;
-// 	vector<int>::reverse_iterator rit = parent.begin();
+// 	std::reverse_iterator<int> rit = parent.begin();
 // 	for(; rit != parent.end(); ++rit )
 // 		t.push_back(*rit);
 // 	return t;
