@@ -37,26 +37,52 @@ void Graph::BreadthFirstSearch(int source){
 		std::cout << "Error: Start value is not in list\n";
 	}
 }
-void Graph::DepthFirstSearch(int source){
+
+// std::vector<int> Graph::Dfs(int start){
+
+// 	return DepthFirstSearch(start);
+// }
+
+std::vector<int> Graph::DepthFirstSearch(int source){
+
 	if(vertices.find(source) != vertices.end()){
-		std::stack<int> S;
-		Vertex[source] -> color = WHITE;
-		Vertex[source] -> parent = NULL;
-		Vertex[source] -> discovertime = Vertex[source] -> finishtime = 0;
+			std::stack<int> S;
+			Vertex[source] -> color = WHITE;
+			Vertex[source] -> parent = NULL;
+			Vertex[source] -> discovertime = Vertex[source] -> finishtime = 0;
+		
+		while(!S.empty()){
+
+			int V = S.top();
+			S.pop();
+			//adjacency list \/
+			for(auto E = vertices[V].begin(); E != vertices[V].end(); E++){
+				
+				if((*E)->color == WHITE){
+					DFS_Visit(V, S);
+					}//end inside if
+				}//end for
+			}//end while
+
+	//------------------ TOPO SORT --------------------//
+
+	vector<int> output;
+	std::map<int, vector<Node*>>::iterator it = vertices.begin();
+
+	//if cycles isn't computed it will still try dfs
+			if(isDAG() || numCycles < 0){
+				output = DepthFirstSearch(it->first);
+			}else //it's not directed or has a cycle
+			{
+				std::cout << "The graph is not a DAG." << endl;
+			}
+
+			for(int i : output)
+				std::cout << i << " ";
+			std::cout << endl;
 	
-	globaltime = 0;
+		return output;
 
-	while(!S.empty()){
-
-		int V = S.top();
-		S.pop();
-		//adjacency list \/
-		for(auto E = vertices[V].begin(); E != vertices[V].end(); E++){
-			if((*E)->color == WHITE){
-				DFS_Visit(V, S);
-				}//end inside if
-			}//end for
-		}//end while
 	}//end outside if
 	else{
 		std::cout << "Error: Start value is not in list\n";
@@ -64,7 +90,10 @@ void Graph::DepthFirstSearch(int source){
 }
 
 void Graph::DFS_Visit(int source, std::stack<int> S){
-	globaltime = globaltime++;
+
+	int globaltime = 0;
+	globaltime++;
+
 	Vertex[source]->discovertime = globaltime;
 	Vertex[source]->color = GRAY;
 
@@ -73,8 +102,8 @@ void Graph::DFS_Visit(int source, std::stack<int> S){
 	//This loop detects cycles 
 	for(auto E = vertices[V].begin(); E != vertices[V].end(); E++){
 		if((*E)->color == WHITE){
-			(*E)->parent = E; //s
-			DFS_Visit(*E, S);
+			(*E)->parent = *E; //s
+			DFS_Visit((*E)->value, S);
 		}
 		//TODO: PARTD: Check if this works
 		//Technically DAG detection
@@ -85,7 +114,7 @@ void Graph::DFS_Visit(int source, std::stack<int> S){
 		}
 	}//end for
 
-	globaltime = globaltime++;
+	globaltime++;
 	Vertex[source]->finishtime = globaltime;
 	Vertex[source]->color = BLACK;
 }
@@ -115,11 +144,13 @@ void Graph::AddEdge(int InsertEdge1, int InsertEdge2){
 	}
 	//push_back puts element at end of vector
 	//increases vector size by 1
-	if(isDirectd){
 
+	//If directed, add both edges (<- directions? ->)
+	if(isDirectd){
+		vertices[InsertEdge2].push_back(Vertex[InsertEdge1]);
+	}else{
+		vertices[InsertEdge2].push_back(Vertex[InsertEdge1]);
 	}
-	vertices[InsertEdge1].push_back(Vertex[InsertEdge2]);
-	vertices[InsertEdge2].push_back(Vertex[InsertEdge1]);
 }
 
 // prints the adjacency list of each vertex, to show the structure
@@ -137,27 +168,7 @@ void Graph::PrintBFS(int start){
 	BreadthFirstSearch(start);
 }
 
-//PART E: TOPOLOGICAL SORT
-//	needs DAG check
-//  needs Transpose function
-// is an ordering of the vertices{v1, v2, . . . , vn} so that if i > j,
-// then there cannot be a path in the graph from vi to vj (there may or may not be a path from vj to vi).
-vector<int> Graph::topSort()
-{
-	vector<int> output;
-	map<int, vector<int>>::iterator it = vertices.begin();
-	if(isDAG() || numCycles < 0)//if cycles isn't computed it will still try dfs
-	{
-		output = DepthFirstSearch(it->first);
-	}else //it's not directed or has a cycle
-	{
-		cout << "The graph is not a DAG." << endl;
-	}
-	for(int i : output)
-		cout << i << " ";
-	cout << endl;
-	return output;
-}
+
 //PART F: SCC detection, d/n have to be acyclic (so no DAG check)
 // vector<vector<int>> Graph::SCC()
 // {
@@ -170,13 +181,4 @@ vector<int> Graph::topSort()
 // 	vector<int> output = Dfs(1, transpose);
 
 // 	return subGraphs;//calculated in DFS
-// }
-
-// vector<int> Graph::getTranspose()
-// {
-// 	vector<int> t;
-// 	std::reverse_iterator<int> rit = parent.begin();
-// 	for(; rit != parent.end(); ++rit )
-// 		t.push_back(*rit);
-// 	return t;
 // }
