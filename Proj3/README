@@ -1,1 +1,24 @@
+Grace Burton and Lauren Golian
+December 11th, 2019
+COSC 320-001
 
+Program Description: This project reviews several literatures to derive an algorithm to solve the four-color theorem. 
+
+To Execute: Simply type 'make' in the command line followed by './main'.
+
+Solutions to Questions:
+
+A. Summarize your approach to the problem, and how your code addresses the abstractions needed.
+
+	To address the abstractions required, I followed the pseudocode provided to us in class/ in the lab. Additionally, I inserted the vector library .find() function to determine if a vertex had already been inserted into the adjacency list.
+	Looking forward, to improve the code, I would like to implement a loop that will systematically change the source integer for BFS. Currently, the number is hard-coded, but this would allow me to ensure that my program works under ALL test cases.
+
+B. What is the theoretical time complexity of your algorithms (best and worst case), in terms of thesize of the graph?  Be sure to vary the parameters enough to use the observations to answer thenext questions!
+
+			Best    Worst
+addVertex   O(1)   O(1)
+addEdge     O(1)   O(vector resizing)
+BFS         O( |V| + |E| ) O( |V| + |E| )
+DFS			O( |V| + |E| ) O( |V| + |E| )	
+
+	Greedy Algorithms don't necessarily make it better/faster 
